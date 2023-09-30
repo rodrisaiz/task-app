@@ -35,13 +35,13 @@ class TodosController extends Controller
      }
 
      public function show($id){
-        $todos = Todo::find($id);
+        $todo = Todo::find($id);
         return view('todos.show',['todo'=>$todo]);
      }
 
-     public function update(Request $reques, $id){
+     public function update(Request $request, $id){
         $todo = Todo::find($id);
-        $todo->title = $reques->title;
+        $todo->title = $request->title;
         $todo->save();
 
         //return view('todos.index',['success'=> 'Task updated']);
@@ -49,7 +49,7 @@ class TodosController extends Controller
      }
 
      public function destroy($id){
-        $todo = Todo::fint($id);
+        $todo = Todo::find($id);
         $todo->delete();
 
         return redirect()->route('todos')->with('success','Task deleted');
