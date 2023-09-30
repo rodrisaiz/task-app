@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+
     <div class="container w-25 border p-4 mt-4">
         <form action="{{route('todos')}}" method="POST">
             @csrf
@@ -23,4 +24,5 @@
             <button type="submit" class="btn btn-primary">Create a new task</button>
         </form>
     </div>
+    
 @endsection
