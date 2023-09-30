@@ -28,4 +28,9 @@ class TodosController extends Controller
         return redirect()->route('todos')->with('success', 'Task correctly created');
 
      }
+
+     public function indax(){
+        $todos = Todo::all();
+        return view('todos.index',['todos'=>$todos]);
+     }
 }
