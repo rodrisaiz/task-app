@@ -29,7 +29,7 @@ class TodosController extends Controller
 
      }
 
-     public function indax(){
+     public function index(){
         $todos = Todo::all();
         return view('todos.index',['todos'=>$todos]);
      }

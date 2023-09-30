@@ -21,5 +21,7 @@ use App\Http\Controllers\TodosController;
 */
 
 Route::get('/todos', [TodosController::class, 'index'])->name('todos');
-
 Route::post('/todos', [TodosController::class, 'store'])->name('todos');
+oute::get('/todos', [TodosController::class, 'store'])->name('todos-show');
+Route::patch('/todos', [TodosController::class, 'store'])->name('todos-update');
+Route::delete('/todos', [TodosController::class, 'store'])->name('todos-destroy');
