@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -11,8 +12,16 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
+    Route example
+
+    Route::get('/welcome', function () {
+    return view('welcome');
+    });
+
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/todos', function () {
+    return view('todos.index');
 });
+
+Route::post('/todos', [TodosController::class, 'store'])->name('todos');
