@@ -25,7 +25,7 @@ class TodosController extends Controller
         $todo->title = $request->title;
         $todo->save();
 
-        return redirect()->route('todos')->with('success', 'Task correctly created');
+        return redirect()->route('todos')->with('success', 'Task correctly created!');
 
      }
 
@@ -44,15 +44,14 @@ class TodosController extends Controller
         $todo->title = $request->title;
         $todo->save();
 
-        //return view('todos.index',['success'=> 'Task updated']);
-        return redirect()->route('todos')->with('success','Task updated');
+        return redirect()->route('todos')->with('success','Task updated!');
      }
 
      public function destroy($id){
         $todo = Todo::find($id);
         $todo->delete();
 
-        return redirect()->route('todos')->with('success','Task deleted');
+        return redirect()->route('todos')->with('success','Task deleted!');
      }
 
 }
