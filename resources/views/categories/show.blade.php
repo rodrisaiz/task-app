@@ -33,8 +33,32 @@
                 <a href="{{route('categories.index')}}">
                     <button type="submit" class="btn btn-secondary">Cancel</button>
                 </a>
-            </form>
-                
-        </div>
-</div>
+            </form>        
+        </div>      
+            <div>
+                @if($category->todos->count() > 0 )
+                    @foreach ( $category->todos as $todo)
+                        
+                    <div class="row py-1">
+                        <div class="col-md-9 d-flex aling-items-center">
+                            <a href="{{ route('todos-update', ['id' =>$todo->id]) }}">{{$todo->title}}</a>
+                        </div>
+
+                        <div class="col-md-3 d-flex justify-content-end">
+                            <form action="{{route('todos-destroy', [$todo->id])}}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </div>
+                        </div>
+                    @endforeach
+                        @else
+                        <br>
+                        <p class="col-md-9 d-flex aling-items-center">
+                            There is not tasks available for this category
+                        </p>
+                        @endif
+                    </div>
+            </div>
 @endsection
