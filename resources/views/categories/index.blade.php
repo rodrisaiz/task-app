@@ -56,14 +56,14 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            This action will delete a category and all the associated task!
+                            This action will delete the category <strong>{{ $category->name }} </strong> and all the associated task!
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <form action="{{ route('categories.destroy',['category'=> $category->id])}}">
+                            <form action="{{ route('categories.destroy',['category'=> $category->id])}}"  method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button type="button" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                             
                         </div>
