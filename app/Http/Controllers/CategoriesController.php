@@ -32,7 +32,7 @@ class CategoriesController extends Controller
     {
         $request->validate([
             'name'=> 'required|unique:categories|max:255',
-            'color'=> 'require|max:7' 
+            'color'=> 'required|max:7' 
         ]);
 
         $category = new Category;
@@ -47,9 +47,9 @@ class CategoriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $category)
     {
-        $category = Category::find($id);
+        $category = Category::find($category);
         return view('categories.show',['category'=>$category]);
     }
 
@@ -64,9 +64,9 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $category)
     {
-        $category = Category::find($id);
+        $category = Category::find($category);
         $category->name = $request->name;
         $category->color = $request->color;
         $category->save();
@@ -78,9 +78,9 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $category)
     {
-        $category = Category::find($id);
+        $category = Category::find($category);
         $category->delete();
 
         return redirect()->route('categories.index')->with('success','Category deleted!');
